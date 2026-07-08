@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <!-- this is a external css -->
+     <link rel="stylesheet" href="button.css">
+     <link rel="stylesheet" href="https://fonts.google.com/selection/embed"> /* list of web safe fonts*/
+    <!-- this is a internal css -->
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        /* element selector */
+        p{
+            color: black;
+        }    
+        #openingpara{
+            font-style: italic ;
+            font-family: 'Courier New', Courier, monospace;
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+     /*font stack n web safe both*/
+
+        }
+        .redbg{
+            background-color: crimson;
+        }
+        #openingpara,.redbg{
+            color: rgb(231, 182, 18);
+        }
+        footer,span{
+            height: 300px;
+            width: 300px;
+            background-color: aqua;
+            font-weight: bold;
+            border: 8px solid brown;
+            background-image: url(https://www.sourcesplash.com/i/2cd9688277b9);
+            background-image: no-repeat;
+            background-position: center;
+        }
+        .padbg{
+            background-color: coral;
+            border: 4px solid yellowgreen;/* radius style color*/
+            height: 90px;
+            width: 500px;
+            margin: 10px;
+            padding: 20px 10px 10px 20px;/* padding: top right bottom left
+            padding:y(left/right) x(top/bottom), margin can also be done in same way*/
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- This is a inline css -->
+    <p style="background-color: rgb(227, 174, 136); "> preference: inline > and for internal and external whichever is placed after is going to have more prefernce. <br>
+    but specifically/manually you wanted to give preference then write ! important there at last </p>
+</body>
+</html>
+
+<h3>element,class,id,grouping selector</h3>
+<p id="openingpara" class="redbg"> classes can be more but id can be one only </p>
+<p id="third para" class="redbg"> this para will show or demonstrate class selector</p>
+<footer>this is footer demonstrating grouping selector</footer>
+<span>this is another para demonstrating grouping selector</span>
+
+<h3>Developer Tools</h3>
+<p>when right click on any font or element on your live server or any website + inspect = shows you the whole source course and you can do changes or preview the best change fits that and copy that element property and use it  </p>
+<!-- /* */ use to comment out in css -->
+
+<h3>FONTS n Colors</h3>
+<a href="https://www.cssfontstack.com/Papyrus" target="_blank"> refer this for list of web safe fonts</a><br>
+<a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank"> refer for Color Picker and use it after copying from there</a>
+
+<h3>Padding,box model n margin</h3>
+<p class="padbg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, facilis.
+</p>
+<p class="padbg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, suscipit?
+</p>
+<h3>Styling links and buttons</h3>
