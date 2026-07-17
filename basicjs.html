@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT</title>
+    <style></style>
+</head>
+
+<body>
+    //JS is a client side scripting lang as well as server, prefer notes for more
+
+    //DOM: doc object model, allowing Js to dynamically change, add, or delete elements.
+
+    <div class="container">
+        <button id="btn" onclick="togglehide()">click to know more</button>
+
+        <div class="container" id="content">
+            <ul>
+                <li>home </li>
+                <li>about </li>
+                <li>services</li>
+                <li>contact</li>
+            </ul>
+        </div>
+        <button id="btn2" onclick="click()">submit</button>
+        <div class="container"></div>
+    </div>
+    the current time is <span id="clock"></span>
+
+
+
+
+    <script>
+
+        // Events & add event listener
+        function togglehide() {
+            let btn = document.getElementById('btn');
+            let content = document.getElementById('content');
+
+            if (content.style.display != "none") {
+                content.style.display = "none"; //to hide element 
+            }
+            else {
+                content.style.display = "block"// to show element
+            }
+        }
+        let btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', function run() {
+            confirm('do you really want to submit ')
+        });
+
+        //DOM: doc object model
+        let s = document.getElementById('main');
+        console.log(s);
+        let y = document.getElementsByClassName('container');
+        console.log(y);
+        let sel = document.querySelector('#main');
+        console.log(sel);
+
+        //string and string function
+
+        var str = "this is a string";
+        console.log(str);
+        var position1 = str.indexOf('is');// output:2 first occurence of substring 
+        var position2 = str.lastIndexOf('is');//output:5 last occurence
+        console.log('position of string ' + position1);
+        console.log('position of string ' + position2);
+        //imp diff
+        var substr = str.slice(2, 5) //(starting from, end string-1 ) or
+        //console.log(substr[3])
+        var substr1 = str.substring(2, 5)// slice can have neg index but it cant
+        var substr2 = str.substr(2, 7);//(from wher to start, how many char to print-1)
+        console.log(substr);
+        console.log(substr1);
+        console.log(substr2);
+        var replaced = str.replace("string", "kashish");
+        console.log(replaced);// the old one is untouched but the new one has the replacement
+        console.log(str);
+        console.log(str.toUpperCase());
+        console.log(str.concat(' and we are learning str fn')); // adding two str or + is also there
+        var char = str.charAt(2);
+        console.log(char);
+
+        str2 = '    we are    learning    ';
+        console.log(str2.trim()); // trim out start n end whitespaces
+
+
+        //        scope n loops
+        //let v = 'this is blocked scope';
+
+        {
+            let v = 'even after assigning the same v variable not showing error but var is a function scope/ global accessible';
+            console.log(v);
+        }
+        //console.log(v);
+        const a = 'this cant be changed';
+        //a = 'but here im assigning string, also a blocked scope'; will show error
+        console.log(a);
+
+        let email = 'kggmail.com';
+        if (!email.includes('@')) {
+            console.log(email + "is invalid doesnot include @")
+        }
+        else if (!email.includes(".com")) {
+            console.log(email + "is invalid: missing .com")
+        }
+        else {
+            console.log('valid email')
+
+        }
+
+        let day = 'sat'
+        switch (day) {
+            case "sunday":
+            case "sat":
+                console.log("our services are off that day")
+                break;
+            case "mon":
+            case "tue":
+            case "wed":
+            case "thurs":
+            case "fri":
+                console.log("glad to provide you our services")
+                break;
+            default:
+                console.log('error')
+                break;
+        }
+        //           arrays (a variable that store group of data inside it with different data type) and objects  (entities), classes (blueprint of entities)
+
+        //Note:  a switch statement cannot automatically search inside an array—it only looks for an exact match. so we cant write above code of days with the help of array. array cant have key with space 
+
+        let otherday = ['saturday', 'sunday'];
+        let workingday = ['mon', 'tues', 'weds', 'thurs', 'fri'];
+
+        console.log(otherday[1]);
+        otherday.push('thursday');
+        console.log(otherday);
+        console.log(workingday.sort());
+
+        // for loop in array (elements)
+
+        for (element of workingday) {
+            console.log(`working days are ${element}`);
+        }
+
+        //  alternative way(select for from emmet and click tab) 
+        for (let index = 0; index < otherday.length; index++) {
+            console.log(`this is ${element}`);
+        }
+
+        let teacher = {
+            name: 'john',
+            qualifiaction: 'phd',
+            age: 32,
+            location: "sector 8",
+        }
+        console.log(teacher.name);
+        // for loop in class (key)
+
+        for (key in teacher) {
+            console.log(`${key} of the teacher is ${teacher[key]}`);
+        }
+
+
+        // functions: reusable block of code that helps eliminate code redundancy and keeps your code DRY (Don't Repeat Yourself).
+        function sum(a, b, c) {
+            let d = a + b + c;
+            return d;
+        }
+        let x = sum(7, 8, 9);
+        console.log(x);
+
+        function max(a, b, c) {
+            if (a == b && b == c) {
+                console.log("all equal");
+            }
+            else if (a > b && a > c) {
+                console.log('a is max'); //always better to use return instead of console in fn otherwise dont use when calling outside the fn
+            }
+            else if (b > a && b > c) {
+                console.log('b is max');
+            }
+            else {
+                console.log('c is max');
+            }
+        }
+
+        let arr = max(2, 2, 2);
+        //   interaction using alert, prompt, confirm
+
+        /*alert('this website is for gamers');
+        let msg = confirm('are you sure you want to continue?');
+        if(msg){
+            console.log('successfully continued ');
+        }
+        else{
+            console.log('discontinued');
+        }*/
+        //  about loops: for,foreach (explain above),do while, while
+
+        let i = 0;
+        while (i < 4) {
+            console.log(`${i} is less than 4`);
+            i++;
+        }
+
+        let j = 34;
+        do {
+            console.log(`${j} is less than 4 and this happens in do while it always run a single time`);
+            j++;
+        }
+        while (j < 4);
+
+        /* these emmet shortcut should not write under script tag, it wont work
+            .class#id
+            div>ul>li*4*/
+        
+        //setinterval & settimeout (revisit this topic again)
+
+        /*function greet(name,endtext){
+            console.log('hello ' + name+  endtext);
+        }
+        timeout = setTimeout(greet, 3000,'john', 'welcome here');
+        console.log(timeout);
+        //clearTimeout(timeout);*/
+
+        //date and time 
+        let now = new Date();
+        console.log(now);
+        //let date = new date(yr, month,date, hour,min, sec,ms);
+
+        let newDate = new Date(2026, 6, 10, 23, 31, 1, 12);
+        console.log(newDate); //months are zero-indexed.
+        let yr = newDate.getFullYear();
+        console.log('this yr is ', yr);
+
+        //clock
+        setInterval(updateTime,3000);
+        function updateTime(){
+            clock.innerHTML = new Date();
+        
+        }
+        //Arrow fn (revisit to know more)
+        let greet = ()=> console.log("good mrng");
+
+        let sums = (a, b)=> a+b;
+
+        
